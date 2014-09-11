@@ -8,18 +8,17 @@ public class BinTreeIneorderTraverse{
       ArrayList<Integer> ret = new ArrayList<Integer>();
       if (root == null) return ret;
       Stack<TreeNode> nodes = new Stack<TreeNode>();
-      nodes.push(root);
-      TreeNode next = root.left;
-      while (!nodes.isEmpty()){
+      TreeNode current = root;
+      while (!nodes.isEmpty() || current != null){
       
-        if (next != null){
-          nodes.push(next);
-          next = next.left;
+        if (current != null){
+          nodes.push(current);
+          current = current.left;
         }
         else {
-          TreeNode n = nodes.pop();
-          ret.add(n.val);
-          next = n.right;
+          current = nodes.pop();
+          ret.add(current.val);
+          current = n.right;
         }
       }
       return ret;  

@@ -18,7 +18,8 @@ public class LinkedListCycle{
         if (slow == fast)
             break;
     }
-    
+    if (fast != slow)
+      return null;
     // now we need to find the start of the cycle
     // now slow and fast met at the meeting point
     

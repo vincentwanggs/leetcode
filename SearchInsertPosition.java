@@ -12,7 +12,7 @@ public class SearchInsertPosition{
       int low = 0;
       int high = A.length - 1;
       
-      while (low < high){
+      while (low <= high){
         int mid = (low+high)/2;
         if (A[mid] == target)
           return mid;

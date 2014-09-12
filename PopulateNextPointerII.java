@@ -29,6 +29,7 @@ public class PopulateNextPointerII{
       }
       
       // now we need to find the next level starting point
+      currentLevelHead = nextLevelHead;
       nextLevelHead = chain.next;
       }
         

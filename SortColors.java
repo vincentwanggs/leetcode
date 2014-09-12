@@ -22,7 +22,7 @@ public class SortColors{
       int cur = red;
       
       while (cur <= blue){
-        if (A[cur] == 0 && cur >= red){
+        if (A[cur] == 0 && cur > red){
           // swap red and cur
           swap(A,red,cur);
           red ++;

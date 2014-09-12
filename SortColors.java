@@ -17,12 +17,12 @@ public class SortColors{
       int blue = A.length - 1;
       
       while (red < A.length && A[red]==0 ) {red++;}
-      while ( blue >= 0  && A[blue]==2) {blue--;}
+      while (blue >= 0 && A[blue]==2 ) {blue--;}
       
       int cur = red;
       
       while (cur <= blue){
-        if (A[cur] == 0){
+        if (A[cur] == 0 && cur != red){
           // swap red and cur
           swap(A,red,cur);
           red ++;
@@ -31,9 +31,8 @@ public class SortColors{
           swap(A,blue,cur);
           blue --;
         }
-        if (A[cur] == 1 || cur == red){
-          cur ++;
-        }
-      
+        else
+            cur ++;
   }
+}
 }

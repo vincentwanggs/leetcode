@@ -12,7 +12,7 @@ public class ReverseListII{
       
       ListNode cur = head;
       int index = 1;
-      while (cur != null && index <= m ){
+      while (cur != null && index < m ){
         cur = cur.next;
         index ++;
         pre = pre.next;

@@ -1,6 +1,6 @@
 public class PathSumII{
 
-  pubic void helper (TreeNode root, int sum, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> res ){
+  public void helper (TreeNode root, int sum, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> res ){
     if (root == null)
       return;
     path.add(root.val);

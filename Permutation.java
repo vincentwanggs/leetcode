@@ -19,7 +19,7 @@ public class Permutation{
       // swap num[depth] with every element that comes after it in the array
       swap(num,i,depth);
       
-      helper(i + 1,num,res);
+      helper(depth + 1,num,res);
       // swap back
       swap(num, i,depth);
     }

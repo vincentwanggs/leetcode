@@ -7,12 +7,12 @@ public class PathSumII{
     if (root.left == null && root.right == null){
       if (root.val == sum){
          res.add(new ArrayList<Integer>(path));
-         return;
+        // return;
       }
     }
     else{
-    helper(root.left, sum - root.val, path, res);
-    helper(root.right, sum -root.val, path, res);
+      helper(root.left, sum - root.val, path, res);
+      helper(root.right, sum -root.val, path, res);
     }
     path.remove(path.size()-1);
   }

@@ -1,5 +1,13 @@
 public class PermutationII{
   
+  public boolean appearBefore(int [] num, int depth, int cur){
+      for (int i = depth; i < cur; i ++){
+        if (num[i] == num[cur])
+          return true;
+      }
+      return false;
+  }
+  
   public void swap(int[] num, int i, int j){
     int tmp = num[i];
     num[i] = num[j];
@@ -17,7 +25,7 @@ public class PermutationII{
     
     for (int i = depth; i < num.length; i ++){
       // swap num[depth] with every element that comes after it in the array
-      if (num[i] != num[depth]){
+      if (! appearBefore(num, depth, i)){
         swap(num,i,depth);
         helper(depth + 1,num,res);
         // swap back

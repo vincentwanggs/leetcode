@@ -3,16 +3,18 @@ public class PathSumII{
   pubic void helper (TreeNode root, int sum, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> res ){
     if (root == null)
       return;
+    path.add(root.val);
     if (root.left == null && root.right == null){
       if (root.val == sum){
          res.add(new ArrayList<Integer>(path));
          return;
       }
     }
-    path.add(root.val);
+    else{
     helper(root.left, sum - root.val, path, res);
     helper(root.right, sum -root.val, path, res);
-    path.remove(root.val);
+    }
+    path.remove(path.size()-1);
   }
   public ArrayList<ArrayList<Integer>> pathSum(TreeNode root, int sum) {
       ArrayList<Integer> path = new ArrayList<Integer> ();

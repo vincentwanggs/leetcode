@@ -1,6 +1,6 @@
 public class CombinationSum{
 
-  public void helper (int sum, int target, int[] candidates, ArrayList<Integer> sol, ArrayList<ArrayList<Integer>> res){
+  public void helper (int depth, int sum, int target, int[] candidates, ArrayList<Integer> sol, ArrayList<ArrayList<Integer>> res){
   
     if (sum == target && !res.contains(sol) ){
       res.append(new ArrayList<Integer> (sol));
@@ -10,9 +10,9 @@ public class CombinationSum{
       return;  
     }
     else{
-      for (int i = 0; i < candidates.length; i ++){
+      for (int i = depth,; i < candidates.length; i ++){
          sol.add(candidates[i]);
-         helper (sum+candidates[i],target, candidates, sol, res);
+         helper (i, sum+candidates[i],target, candidates, sol, res);
          sol.remove(sol.size()-1);
       }
     }
@@ -21,7 +21,7 @@ public class CombinationSum{
       Arrays.sort(candidates);  // sort the array first  
       ArrayList<Integer> sol = new ArrayList<Integer> ();
       ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>> ();
-      helper (0,target,candidates,sol,res);
+      helper (0,0,target,candidates,sol,res);
       return res;
   }
 }

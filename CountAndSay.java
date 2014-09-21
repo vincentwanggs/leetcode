@@ -12,28 +12,31 @@ Given an integer n, generate the nth sequence.
   public String countAndSay(int n) {
       
      
-      // count the consecutive number of elements
       StringBuffer cur = new StringBuffer("1");
-      
-      for (int i = 1; i <= n; i ++){
-        StringBuffer res = new StringBuffer();
+      if (n == 1)
+            return cur.toString();
+      StringBuffer res = new StringBuffer();
+      for (int i = 2; i <= n; i ++){
+        res = new StringBuffer();
         String str = cur.toString();
-        char ch = str.charAt(0);
         int count = 0;
+        // for all the chars of the current solution
         for (int j = 0; j < str.length(); j ++){
-          char ch1 = str.charAt(j);
-            while (j < str.length() && ch1 == ch){
-              ch1 = str.charAt(j);
+          char ch = str.charAt(j);
+          // count how many times ch appears in the current solution
+          while (j < str.length() && ch == str.charAt(j)){
+              j ++;
               count ++;
-            }
+          }
             res.append(count);
             res.append(ch);
-            if (j < str.length())
-              ch = str.charAt(j);
-            count = 0;
+          if (j == str.length())
+            break;
+          count = 0;
+          j --;
         }
         cur = res;
       }
-     return  res;
+     return  res.toString();
     }
 }

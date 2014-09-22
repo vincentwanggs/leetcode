@@ -32,11 +32,11 @@ public class ZigzagTraversal{
             if (level % 2 != 0)
               Collections.reverse(vals);
             res.add(vals);
+          }
             vals = new ArrayList<Integer>();
             currentLevel = nextLevel;
             nextLevel = 0;
             level ++;
-          }
         }
         
       }

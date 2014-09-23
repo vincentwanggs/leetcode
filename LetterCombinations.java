@@ -3,7 +3,7 @@ public class LetterCombinations{
   public void helper(int depth, String[] strings, StringBuffer solution, ArrayList<String> res){
   
     // depth is the digit position we are in 
-    if (strings.length == depth){
+    if (strings.length == solution.length()){
       res.add(solution.toString());
       return;
     }

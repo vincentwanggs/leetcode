@@ -19,6 +19,7 @@ public class ConstructBTreeInPostOrder{
     
     int index = inOrderVal2Index.get(rootVal);
     
+    // get the size of the left subtree, index is the root index
     int sizeOfSubTree = index - inStart - 1;
     
     root.right = helper(postorder, index + 1, inEnd, postStart+sizeOfSubTree+1, postEnd - 1, inOrderVal2Index);

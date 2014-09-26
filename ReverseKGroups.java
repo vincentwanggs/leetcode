@@ -5,6 +5,12 @@ public class ReverseKGroups{
       dummy.next = head;
       ListNode cur = head;
       ListNode pre = dummy;
+       ListNode tail =  cur;
+        for (int i = 0; i < k ; i ++){
+                if (tail == null)
+                    return dummy.next;
+                tail = tail.next;
+        }
       while (cur != null){
         int index = 0;
         ListNode reverseH = null;  // the head of the reversed sublist
@@ -25,7 +31,7 @@ public class ReverseKGroups{
         pre = reverseT;
         // test whether there are more than k elements left
         
-        ListNode tail =  cur;
+         tail =  cur;
         for (int i = 0; i < k ; i ++){
                 if (tail == null)
                     return dummy.next;

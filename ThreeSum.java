@@ -15,9 +15,9 @@ public ThreeSum{
              // now skip the same head and tail
             int h = num[head];
             int t = num[tail];
-            while (head < tail && num[head] == num[head+1])
+            while (head < tail && num[head] == h)
               head ++;
-            while (tail > head && num[tail] == num[tail-1])
+            while (tail > head && num[tail] == t)
               tail --;
           }
           else if (num[head]+num[tail]+num[i] < 0){

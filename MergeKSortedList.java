@@ -12,7 +12,7 @@ public class MergedSortedList{
       ListNode second = helper(lists, mid+1, high); // merge the second half
       return merge(first,second);
     }
-    return null;
+    return lists.get(low);
   }
   ListNode merge(ListNode l1, ListNode l2){
         ListNode dummy = new ListNode(0);

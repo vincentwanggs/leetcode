@@ -5,17 +5,20 @@ public class SortList{
     
     ListNode fast = head;
     ListNode slow = head;
+    ListNode pre = null;
     while (fast != null && fast.next != null){
+    	pre = slow;
       slow = slow.next;
       fast = fast.next;
     }
   
     // we need to break the list into halves  
-    ListNode left = head;
     
-    ListNode right = slow.next;
     
-    slow.next = null;
+    ListNode right = slow;
+    
+    pre.next = null;
+  ListNode left = head;
   
     ListNode h1 = sortList(left);
 		ListNode h2 = sortList(right);

@@ -6,7 +6,41 @@ public class LRUCache{
       head = null;
       tail = null;
   }
-    
+    public void removeItem(Item item){
+    	// remove item from the list
+    	if (item.pre == null)
+    		head = item.next;
+    	else
+    	    item.pre.next = item.next;
+    	if (item.next != null)
+    		item.next.pre = item.pre;
+    	else
+    		tail = item.pre;
+    }
+    public void setHead(item){
+    	if (head == null){
+    		head = item;
+    		if (tail == null)
+    			tail = head;
+    	}
+    	else{
+    		item.next = head;
+    		item.pre = null;
+    		if (head != null)
+    			head.pre = item;
+    		head = item;
+    		if (tail == null)
+    			tail = item.next;
+    	}
+    }
+    public void removeEnd(){
+    	if (tail == null)
+    		return;
+    	Item newTail = tail.pre;
+    	if (newTail != null)
+    		newTail.next = null;
+    	tail = newTail;
+    }
     public int get(int key) {
       if (key2value.containsKey(key)){
         Item item = key2value.get(key);
@@ -21,12 +55,24 @@ public class LRUCache{
     public void set(int key, int value) {
       if (key2value.containsKey(key)){
         Item item = key2value.get(key);
-			  removeItem(item);
-			  item.set(key, value);
-			  setHead(item);
+	removeItem(item);
+	item.set(key, value);
+	setHead(item);
       }
       else{
-      
+      	// add this new key value pair
+      	Item item = new Item(key,value);
+      	if (size == capacity){
+      		key2value.remove(tail.getkey());
+      		removeEnd();
+      		setHead(item);
+      		key2value.put(key,item);
+      	}
+      	else{
+      		setHead(item);
+      		key2value.put(key,item);	
+      		size ++;
+      	}
       }
     }
     

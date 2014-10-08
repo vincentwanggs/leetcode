@@ -12,7 +12,7 @@ public class RegularExpre{
         return false;
       return isMatch(s.substring(1),p.substring(1));
     }
-    else{
+    else{ // p.charAt(1) == * && p.length() > 1
       int len = s.length();
       int i = -1;
       

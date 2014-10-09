@@ -1,6 +1,6 @@
 public class WordBreakDP{
   public boolean wordBreak(String s, Set<String> dict) {
-    boolean[] canBreak = new boolean[s.length()+1]; // whether the substring with length i can be broken into dictionary words
+    boolean[] canBreak = new boolean[s.length()+1]; // whether the s.substring(0,i) can be broken into dictionary words
     
     canBreak[0] = true;
     

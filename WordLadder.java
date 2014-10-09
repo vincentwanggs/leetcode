@@ -20,10 +20,10 @@ public class WordLadder{
           for (int j = 0; j < 26; j ++){
             StringBuffer tmp = new StringBuffer(cur);
             tmp.setCharAt(i,(char)(j+'a'));
-            if (dict.contains(tmp)){
-              queue.add(tmp);
+            if (dict.contains(tmp.toString())){
+              queue.add(tmp.toString());
               distance.add(curDist + 1);
-              
+              dict.remove(tmp.toString());
             }
           }
         }

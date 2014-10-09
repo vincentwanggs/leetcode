@@ -31,7 +31,9 @@ public class Solution {
               if (matrix[i][j] == '1'){
                   height[j] = height[j] + 1;
               }
-              
+              else
+                height[j] = 0;
+          }
           // process one line
           maxArea = Math.max(maxArea,maxRecHist(height));
       }
